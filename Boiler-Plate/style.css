@@ -1,0 +1,152 @@
+/*
+	Resetting Defaults
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+	Colors
+*/
+@font-face {
+  font-family: "Menlo";
+  src: url("fonts/menlo.ttc");
+}
+body {
+  font-family: "Menlo", serif;
+  src: url("fonts/menlo.ttc");
+  background-color: #192536;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+pre[rel]::before {
+  content: attr(rel);
+  text-decoration: underline;
+  font-size: 24px;
+  color: #f5cc6b;
+  padding-bottom: 40px;
+  display: block;
+}
+
+pre {
+  padding: 40px;
+  border: 3px solid #fff;
+  box-shadow: -8px -8px #fff;
+  background-color: #192536;
+  font-size: 16px;
+  word-wrap: break;
+  padding-bottom: 80px;
+}
+pre span {
+  margin-bottom: 5px;
+}
+pre .line {
+  margin: -14px 0;
+}
+pre .html-tags {
+  color: #e65351;
+}
+pre .attr-names {
+  color: #7ce656;
+}
+pre .attr-values {
+  color: #f5cc6b;
+}
+pre .links {
+  color: #8ed3e6;
+}
+pre .text {
+  color: #fff;
+}
+
+#copyCode {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.line {
+  display: block;
+}
+
+.btn-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn {
+  width: 50%;
+  height: 60px;
+  float: left;
+  color: #fff;
+  background-color: #192536;
+  border: 3px solid #fff;
+  margin-right: -3px;
+  outline: none;
+  font-size: 24px;
+  transition: 0.3s ease-in-out;
+}
+
+#btn-copy {
+  border-left: none;
+  margin-left: 3px;
+}
+
+.btn:hover {
+  color: #192536;
+  background-color: #7ce656;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+#copy-success {
+  width: 100%;
+  padding: 20px 0;
+  color: #192536;
+  background-color: #7ce656;
+  box-shadow: -8px -8px #fff;
+  text-align: center;
+  position: absolute;
+  bottom: -100px;
+  overflow-y: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+#copy-fail {
+  width: 100%;
+  padding: 20px 0;
+  color: #192536;
+  background-color: #e65351;
+  box-shadow: -8px -8px #fff;
+  text-align: center;
+  position: absolute;
+  bottom: -100px;
+  opacity: 0;
+  overflow-y: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+/*# sourceMappingURL=style.css.map */

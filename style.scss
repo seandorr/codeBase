@@ -1,0 +1,583 @@
+/*
+	Reset defaults
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+/*
+	Media Query Mixins
+*/
+$tablet: 768px;
+$desktop: 1040px;
+
+@mixin tablet {
+	@media (min-width: #{$tablet}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop}) {
+		@content;
+	}
+}
+
+/*
+	Define colors
+*/
+
+$dark-gray: #1E1F1E;
+$lite-gray: #444;
+$pink: #EF82B0;
+$purple: #A49FF1;
+$green: #7AC8B6;
+$alt-green: #91D462;
+$orange: #FD8F3F;
+$blue: #53A5FB;
+$white: #f9f9f9;
+
+/*
+	Define extended classes
+*/
+
+%card-style {
+	-webkit-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4); 
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
+	border-radius: 5px; 
+}
+
+%vert-align {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@font-face {
+	font-family: "Menlo";
+	src: url("fonts/menlo.ttc");
+}
+
+body {
+	background-color: $dark-gray;
+	font-family: "Menlo", sans-serif;
+}
+
+.container {
+	margin: 0 25px 25px 25px;
+	padding: 25px 0;
+	padding-bottom: 50px;
+	background-color: $lite-gray;
+	@extend %card-style;
+	position: relative;
+	
+	@include tablet {
+		margin: 0 50px 50px 50px;
+		padding: 50px 0;
+	}
+	
+	h1.title {
+		color: $dark-gray;
+		background-color: $orange;
+		display: inline-block;
+		padding: 10px;
+		position: absolute;
+		top: -10px;
+		left: -10px;
+		@extend %card-style;
+	}
+}
+
+.code-container {
+	padding-bottom: 100px;
+	
+	@include tablet {
+		padding-bottom: 50px;
+	}
+}
+
+/*
+	Navigation
+*/
+
+nav {
+	width: 100%;
+	height: 100px;
+	color: $white;
+	background-color: $dark-gray;
+	position: relative;
+	
+	.logo {
+		padding: 10px;
+		color: $pink;
+		border-radius: 10px;
+		font-size: 24px;
+		@extend %vert-align;
+		left: 25px;
+		z-index: 999;
+		
+		@include tablet {
+			left: 50px;
+		}
+		
+		span {
+			color: $purple;
+		}
+	}
+	
+	.logo:hover > span {
+		text-decoration: underline;
+		transition: 0.3s ease-in-out;
+	}
+	
+	ul#nav-links {
+		font-size: 18px;
+		list-style: none;
+		transition: 0.3s ease-in-out;
+		
+		@include tablet {
+			position: absolute;
+			top: 50%;
+			right: 80px;
+			transform: translateY(-50%);
+		}
+		
+		li {
+			display: none;
+			position: relative;
+			z-index: 999;
+			
+			@include tablet {
+				display: block;
+				float: left;
+				margin-left: 50px;
+			}
+		}
+		
+		li::before {
+			@include tablet {
+				content: "";
+				width: 5px;
+				height: 40px;
+				background-color: $pink;
+				border-radius: 5px;
+				position: absolute;
+				left: -25px;
+				bottom: -12px;
+				z-index: -1;
+			}
+
+		}
+		
+		li#contact::after {
+			@include tablet {
+				content: "";
+				width: 5px;
+				height: 40px;
+				background-color: $pink;
+				border-radius: 5px;
+				position: absolute;
+				right: -25px;
+				bottom: -12px;
+				z-index: -1;
+			}
+		}
+		
+		a:hover > #code::before  {
+			width: 153px;
+			transition: 0.3s ease-in-out;
+		}
+		
+		a:not(:hover) > #code::before {
+			width: 5px;
+			transition: 0.3s ease-in-out;
+		}
+		
+		a:hover > #about::before  {
+			width: 109px;
+			transition: 0.3s ease-in-out;
+		}
+		
+		a:not(:hover) > #about::before {
+			width: 5px;
+			transition: 0.3s ease-in-out;
+		}
+		
+		a:hover > #contact::before  {
+			width: 126px;
+			transition: 0.3s ease-in-out;
+		}
+		
+		a:not(:hover) > #contact::before {
+			width: 5px;
+			transition: 0.3s ease-in-out;
+		}
+	}
+	
+	.responsive {
+		@extend %card-style;
+		background-color: $pink;
+		width: 100%;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		z-index: 998;
+		transition: 0.3s ease-in-out;
+	}
+	
+	ul#nav-links.responsive li {
+		float: none;
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		margin: 40px;
+	}
+	
+	a.navIcon {
+		position: absolute;
+		right: 25px;
+		top: 25px;
+		z-index: 3;
+		color: $dark-gray;
+		font-size: 24px;
+		padding: 10px 17px;
+		background-color: $purple;
+		border-radius: 50px;
+		transition: 0.3s ease-in-out;
+		z-index: 999;
+		
+		@include tablet {
+			display: none;
+		}
+	}
+	
+	a.navIcon:hover {
+		color: $white;
+		background-color: $pink;
+		transform: rotate(-90deg);
+	}
+	
+	a.navIcon.rotate {
+		color: $white;
+		background-color: $pink;
+		transform: rotate(-135deg);
+	}
+}
+
+/*
+	Index grid
+*/
+
+div.grid-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 100px 50px;
+	margin: 50px 25px 25px 25px;
+	position: relative;
+	z-index: 3;
+	
+	@include tablet {
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 100px 50px;
+		margin: 50px;
+	}
+	
+	@include desktop {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	
+	.grid-item {
+		display: flex;
+		align-items: center;
+	    justify-content: center;
+	    height: 200px;
+	    color: $dark-gray;
+	    background-color: $white;
+	    @extend %card-style;	    
+	    transition: 0.3s ease-in-out;
+	    position: relative;
+	    
+	    p {
+		    font-size: 24px;
+			color: $white;
+		    position: absolute;
+		    right: 10px;
+		    bottom: -40px;
+	    }
+	}
+	
+	.grid-item:hover > p {
+		color: $white;
+	}
+	
+	.grid-item::before {
+		content: "";
+		width: 20px;
+		height: 20px;
+		@extend %card-style;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		z-index: 1;
+	}
+	
+	.html::before {
+		background-color: $orange;
+	}
+	
+	.css::before {
+		background-color: $blue;
+	}
+	
+	.php::before {
+		background-color: $purple;
+	}
+	
+	.js::before {
+		background-color: $green;
+	}
+
+	.grid-item::after {
+		content: "";
+		width: 95%;
+		height: 100%;
+		background-color: $dark-gray;
+		@extend %card-style;
+		position: absolute;
+		right: -10px;
+		bottom: -50px;
+ 		z-index: -3;
+	}
+	
+	.grid-item:hover::after {
+		width: calc(100% + 20px);
+		height: calc(100% + 60px);
+		transition: 0.3s ease-in-out;
+	}
+	
+	.html:hover::after {
+		background-color: $orange;
+	}
+	
+	.css:hover::after {
+		background-color: $blue;
+	}
+	
+	.php:hover::after {
+		background-color: $purple;
+	}
+	
+	.js:hover::after {
+		background-color: $green;
+	}
+	
+	.grid-item:not(:hover)::after {
+		transition: 0.3s ease-in-out;
+	}
+}
+
+/*
+	Boiler Plate	
+*/
+
+pre {
+	padding: 50px;
+	font-size: 16px;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	
+	span {
+		margin-bottom: 5px;
+	}
+	
+	.line {
+		margin: -14px 0;
+	}
+	
+	.html-tags {
+		color: $green;
+	}
+	
+	.attr-names {
+		color: $alt-green;
+	}
+	
+	.attr-values {
+		color: $orange;
+	}
+	
+	.links {
+		color: $blue;
+	}
+	
+	.text {
+		color: $white;
+	}
+}
+
+#copyCode {
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+
+.line {
+	display: block;
+}
+
+.btn-container {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.btn {
+	width: 100%;
+	height: 60px;
+	float: left;
+	color: $white;
+	background-color: $lite-gray;
+	@extend %card-style;
+	border: none;
+	outline: none;
+	font-size: 24px;
+	transition: 0.3s ease-in-out;
+	
+	@include tablet {
+		width: 50%;
+		float: left;
+	}
+}
+
+.btn:hover {
+	color: $lite-gray;
+	background-color: $alt-green;
+	cursor: pointer;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+#copy-success {
+	width: 100%;
+	padding: 20px 0;
+	color: $dark-gray;
+	background-color: $alt-green;
+	text-align: center;
+	position: fixed;
+	bottom: -100px;
+ 	visibility: hidden;
+	overflow-y: hidden;
+	transition: 0.5s ease-in-out;
+	z-index: 999;
+	
+	.close-btn {
+		font-size: 24px;
+		@extend %vert-align;
+		right: 50px;
+		transition: 0.3s ease-in-out;
+	}
+}
+
+#copy-fail {
+	width: 100%;
+	padding: 20px 0;
+	color: $dark-gray;
+	background-color: $orange;
+	box-shadow: -8px -8px $white;
+	text-align: center;
+	position: absolute;
+	bottom: -100px;
+	opacity: 0;
+	overflow-y: hidden;
+	transition: 0.5s ease-in-out;
+}
+
+/*
+	Footer
+*/
+
+footer {
+	position: relative;
+	margin-top: 150px;
+	z-index: 998;
+	
+	@include tablet {
+		position: fixed;
+		bottom: 50px;
+		right: 50px;
+	}
+	
+	section {
+		padding: 50px;
+		background-color: $purple;
+		@extend %card-style;
+		position: relative;
+		
+		@include tablet {
+			padding: 10px;
+		}
+		
+		.profile-pic {
+			width: 0;
+			margin-bottom: 10px;
+			position: absolute;
+			display: none;
+			right: 10px;
+			bottom: 30px;
+			-webkit-filter: grayscale(1);
+			filter: grayscale(1);
+			transition: 0.3s ease-in-out;
+			
+			@include tablet {
+				display: block;
+			}
+		}
+		
+		h2 {
+			text-align: center;
+		}
+	}
+	
+	a:hover > section {
+		color: $white;
+		background-color: $pink;
+		transition: 0.3s ease-in-out;
+		
+		@include tablet {
+			padding: 326px 10px 10px 10px;
+		}
+		
+		.profile-pic {
+			width: calc(100% - 20px);
+		}
+	}
+	
+	a:not(:hover) > section {
+		transition: 0.3s ease-in-out;
+	}
+}

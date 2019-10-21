@@ -1,2 +1,2 @@
-# codeBase
-Useful snippets to get your project going
+# php
+A collection of PHP projects
