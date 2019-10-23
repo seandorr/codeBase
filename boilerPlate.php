@@ -3,7 +3,7 @@
 ?>
 
 <section class="container code-container">
-	<h1 class="title">Boiler Plate HTML</h1>
+	<h1 class="title main">Boiler Plate HTML</h1>
 	<pre class="attr-values" id="boilerPlate">
 		<span class="line text">&lt;!DOCTYPE html&gt;</span>
 		<span class="line html-tags">&lt;html <span class="attr-names">lang</span>=<span class="attr-values">"en"</span>&gt;</span>
@@ -23,12 +23,12 @@
 			<span class="line html-tags">&lt;/body&gt;</span>
 		<span class="line html-tags">&lt;/html&gt;</span>
 	</pre>
-</div>
 
-<div class="btn-container">
-	<button class="btn" id="btn-download" type="button"><a href="boilerPlate.html" download="Boiler-Plate/boilerPlate.html"><i class="fas fa-download"></i></a></button>
-	<button class="btn" id="btn-copy" type="button"><i class="fas fa-clone"></i></button>
-</div>
+
+	<div class="btn-container">
+		<button class="btn" id="btn-download" type="button"><a href="#" download="boilerPlate.html"><i class="fas fa-download"></i></a></button>
+		<button class="btn" id="btn-copy" type="button"><i class="fas fa-clone"></i></button>
+	</div>
 </section>
 
 <textarea id="copyCode">
@@ -38,7 +38,7 @@
 	<title>Title</title>
 	<meta name='description' content=''>
 	<meta name='keywords' content=''>
-	<meta name='author' content='Sean Dorr'>
+	<meta name='author' content=''>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<meta charset='UTF-8'>
 	<link rel='stylesheet' type='text/css' href='style.css'>
@@ -51,15 +51,13 @@
 </html>
 </textarea>
 
-<div id="copy-success">
-	<h1>Copied to clipboard</h1>
-	<a class="close-btn" href="javascript:void(0)">X</a>
-</div>
-
-<div id="copy-fail">
-	<h1>00ps, s0mething went wrong... </h1>
-</div>
+<section class="text-container">
+	<div class="max-width">
+		<p>All of the important stuff to get your project started. Fill in the meta content to help with SEO, and don't forget to change the imported file names if your files are named anything different.</p>
+	</div>
+</section>
 
 <?php
+	include 'success.php';
 	include 'footer.php';
 ?>

@@ -6,8 +6,8 @@ function mobileNav() {
     document.getElementById("colorChange").style.color = "#f9f9f9";
   } else {
     x.className = "nav-links";
-    document.getElementById("theLogo").style.color = "#EF82B0";
-    document.getElementById("colorChange").style.color = "#A49FF1";
+    document.getElementById("theLogo").style.color = "#444";
+    document.getElementById("colorChange").style.color = "#7AC8B6";
   }
   
   var y = document.getElementById("theNavIcon");
